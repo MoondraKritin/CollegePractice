@@ -72,7 +72,9 @@ class bpractice2 {
         String[] docs = {"new home sales top forcasts",
                 "home sales rise in july",
                 "increase in home sales in july",
-                "july new home sales rise"};
+                "july new sales rise"};
+
+        //adding all the tokens in the document in string array
         ArrayList<String> t1= new ArrayList<String>();
         for(int i=0;i<docs.length;i++){
             String[]tokens= docs[i].split(" ");
@@ -84,9 +86,10 @@ class bpractice2 {
         for(int i=0;i<t1.size();i++) myDocs[i]=t1.get(i);
 
         bpractice2 bt = new bpractice2(myDocs);
-        System.out.println("the search is:");
+        System.out.println("the traversal is:");
         bt.printInOrder(bt.root);
 
+        //adding the document id to the document id list
         for(int i=0;i<docs.length;i++){
             String[] tokens=docs[i].split(" ");
             for(String token:tokens){
@@ -97,6 +100,7 @@ class bpractice2 {
             }
         }
 
+        //searching for the term
         Node n= bt.search(bt.root, "new");
         if(n.value=="no")System.out.println("wrong");
         System.out.println(n.docList);
